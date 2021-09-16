@@ -20,7 +20,7 @@
                             @foreach ($user as $u )
                             <tr>
                                 <td>{{$u->name}}</td>
-                                <td><a class="btn btn-info"href="{{route('impersonate',$u->id)}}">Impersonate</a> </td>
+                                <td><a class="btn btn-info"href="{{route('impersonate',$u->id)}}">View</a> </td>
                               </tr>
                             @endforeach
 
@@ -30,6 +30,15 @@
                                 @endif
                         </tbody>
                       </table>
+                      <a class="btn btn-info"href="">Read</a>
+                      @if(!session('impersonated_by') )
+                      <a class="btn btn-success"href="">Update</a>
+                      <a class="btn btn-danger"href="">Delete</a>
+                      @else
+                      <a class="btn btn-success disabled"href="">Update</a>
+                      <a class="btn btn-danger disabled"href="">Delete</a>
+                      @endif
+
                 </div>
             </div>
         </div>
